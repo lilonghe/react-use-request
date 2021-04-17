@@ -1,0 +1,16 @@
+{
+  "name": "@lilonghe/react-use-request",
+  "version": "1.0.0",
+  "description": "Hooks for fetching data in React.",
+  "main": "useRequest.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilonghe/react-use-request.git"
+  },
+  "author": "lilonghe <lilonghe@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilonghe/react-use-request/issues"
+  },
+  "homepage": "https://github.com/lilonghe/react-use-request#readme",
+}
