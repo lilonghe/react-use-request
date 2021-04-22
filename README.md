@@ -13,6 +13,12 @@ npm install @lilonghe/react-use-request
 # Usage
 ```
 const { loading, error, data, refetch } = useRequest(fetcher, options);
+
+useEffect(()=>{
+    if (data) {
+      console.log(data)
+    }
+}, [data])
 ```
 view `demo.js`
 
@@ -42,3 +48,12 @@ response of `fetcher`.
 
 ## loading
 when request is `true`.
+
+## onSuccess
+when response data `onSuccess(response)`
+
+## onError
+when catch error `onError(error)`
+
+## onFinish
+when request end `onFinish`

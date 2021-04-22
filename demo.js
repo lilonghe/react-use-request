@@ -48,7 +48,9 @@ const sendService = (params) => {
 function App() {
   const [nodeList, setNodeList] = useState([]);
   const [nodeParams, setNodeParams] = useState({});
-  const { loading, error, data } = useRequest(homeService, { params: nodeParams });
+  const { loading, error, data } = useRequest(homeService, { params: nodeParams, onSuccess: (res) => {
+    console.log(res)
+  }});
   const { loading: loadingAdd, refetch: sendMessage } = useRequest(sendService, { enable: false })
 
   useEffect(()=>{

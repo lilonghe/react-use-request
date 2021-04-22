@@ -12,19 +12,22 @@ const useFetch = (fetcher, userOptions={}) => {
     };
 
     const start = (newParams) => {
-        fetcher(newParams).
+        return fetcher(newParams).
             then(res=>{
                 setData(res);
+                options.onSuccess && options.onSuccess(res);
             }).catch(err=>{
                 setError(err);
+                options.onError && options.onError(err);
             }).finally(()=>{
                 setLoading(false);
+                options.onFinish && options.onFinish();
             });
     }
 
     const refetch = (newParams) => {
         setLoading(true);
-        start(newParams);
+        return start(newParams);
     }
 
     useEffect(()=>{
