@@ -8,11 +8,18 @@ const useFetch = (fetcher, userOptions={}) => {
     const options = {
         enable: true,
         enableParam: true,
+        multiParam: false,
         ...userOptions
     };
 
     const start = (newParams) => {
-        return fetcher(newParams).
+        let req;
+        if (options.multiParam) {
+            req = fetcher(...newParams)
+        } else {
+            req = fetcher(newParams)
+        }
+        return req.
             then(res=>{
                 setData(res);
                 options.onSuccess && options.onSuccess(res);

@@ -57,3 +57,6 @@ when catch error `onError(error)`
 
 ## onFinish
 when request end `onFinish`
+
+## multiParam
+adapter `func(p1,p2)`, use of `refetch([p1, p2])`
