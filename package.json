@@ -1,6 +1,6 @@
 {
   "name": "@lilonghe/react-use-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hooks for fetching data in React.",
   "main": "useRequest.js",
   "repository": {
