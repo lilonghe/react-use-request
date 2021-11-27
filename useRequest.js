@@ -5,12 +5,12 @@ const useFetch = (fetcher, userOptions={}) => {
     const [data, setData] = useState(undefined);
     const [error, setError] = useState(undefined);
     const firstExecute = useRef(true);
-    const options = {
+    const [options, setOptions] = useState({
         enable: true,
         enableParam: true,
         multiParam: false,
-        ...userOptions
-    };
+        ...userOptions,
+    });
 
     const start = (newParams) => {
         let req;
@@ -52,6 +52,15 @@ const useFetch = (fetcher, userOptions={}) => {
             }
         }
     }, [options.params]);
+
+    useEffect(() => {
+        if (options.params !== userOptions.params) {
+            setOptions({
+                ...options,
+                params: userOptions.params,
+            });
+        }
+    }, [userOptions.params]);
 
     return { loading, data, error, refetch };
 }
